@@ -55,6 +55,16 @@ class CartProduct
     }
 
     /**
+     * Get cart
+     *
+     * @return Cart
+     */
+    public function getCart()
+    {
+        return $this->cart;
+    }
+
+    /**
      * Set cart
      *
      * @param \stdClass $cart
@@ -69,13 +79,13 @@ class CartProduct
     }
 
     /**
-     * Get cart
+     * Get product
      *
-     * @return Cart
+     * @return \stdClass
      */
-    public function getCart()
+    public function getProduct()
     {
-        return $this->cart;
+        return $this->product;
     }
 
     /**
@@ -93,13 +103,13 @@ class CartProduct
     }
 
     /**
-     * Get product
+     * Get qty
      *
-     * @return \stdClass
+     * @return int
      */
-    public function getProduct()
+    public function getQty()
     {
-        return $this->product;
+        return $this->qty;
     }
 
     /**
@@ -114,16 +124,6 @@ class CartProduct
         $this->qty = $qty;
 
         return $this;
-    }
-
-    /**
-     * Get qty
-     *
-     * @return int
-     */
-    public function getQty()
-    {
-        return $this->qty;
     }
 }
 

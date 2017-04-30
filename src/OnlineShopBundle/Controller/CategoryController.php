@@ -100,7 +100,7 @@ class CategoryController extends Controller
                 "category" => $category,
                 "max_promotion" => $max_promotion,
                 "calc" => $calc
-               // "pagination" => $pagination
+                // "pagination" => $pagination
             ]
         );
     }

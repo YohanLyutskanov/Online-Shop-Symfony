@@ -4,10 +4,11 @@ namespace OnlineShopBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Category
- *
+ * @UniqueEntity("name")
  * @ORM\Table(name="categories")
  * @ORM\Entity(repositoryClass="OnlineShopBundle\Repository\CategoryRepository")
  */

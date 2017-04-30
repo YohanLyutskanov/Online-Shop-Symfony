@@ -11,6 +11,7 @@ class PromotionManager
     protected $general_promotion;
 
     protected $category_promotions;
+
     /**
      * PriceCalculator constructor.
      *
@@ -18,7 +19,7 @@ class PromotionManager
      */
     public function __construct(PromotionRepository $repo)
     {
-        $this->general_promotion =  $repo->fetchBiggestGeneralPromotion();
+        $this->general_promotion = $repo->fetchBiggestGeneralPromotion();
         $this->category_promotions = $repo->fetchCategoriesPromotions();
     }
 

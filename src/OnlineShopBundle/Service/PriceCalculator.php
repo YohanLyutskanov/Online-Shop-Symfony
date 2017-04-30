@@ -9,8 +9,9 @@ class PriceCalculator
     /** @var  PromotionManager */
     protected $manager;
 
-    public function __construct(PromotionManager $manager) {
-        $this->manager= $manager;
+    public function __construct(PromotionManager $manager)
+    {
+        $this->manager = $manager;
     }
 
 
@@ -21,12 +22,12 @@ class PriceCalculator
      */
     public function calculate($product)
     {
-        $category    = $product->getCategory();
+        $category = $product->getCategory();
         $category_id = $category->getId();
 
         $promotion = $this->manager->getGeneralPromotion();
 
-        if($this->manager->hasCategoryPromotion($category)){
+        if ($this->manager->hasCategoryPromotion($category)) {
             $promotion = $this->manager->getCategoryPromotion($category);
         }
 

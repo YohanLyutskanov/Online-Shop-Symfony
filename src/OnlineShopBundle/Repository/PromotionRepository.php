@@ -30,10 +30,9 @@ class PromotionRepository extends \Doctrine\ORM\EntityRepository
             ->setMaxResults(1);
 
 
-
         $query = $qb->getQuery();
 
-        if($query->getOneOrNullResult() !== null){
+        if ($query->getOneOrNullResult() !== null) {
             return $query->getSingleScalarResult();
         }
         return 0;
@@ -49,7 +48,7 @@ class PromotionRepository extends \Doctrine\ORM\EntityRepository
 
         $today = new \DateTime();
 
-        $qb->select(['MAX(p.percent) as percent','c.id'])
+        $qb->select(['MAX(p.percent) as percent', 'c.id'])
             ->join('p.category', 'c')
             ->where($qb->expr()->lte('p.startDate', ':today'))
             ->andWhere($qb->expr()->gte('p.endDate', ':today'))
@@ -58,7 +57,7 @@ class PromotionRepository extends \Doctrine\ORM\EntityRepository
             ->groupBy('c')
             ->orderBy('p.percent', 'DESC');
 
-        $results  = $qb->getQuery()->getResult();
+        $results = $qb->getQuery()->getResult();
 
         $promotions = [];
         foreach ($results as $promotion) {

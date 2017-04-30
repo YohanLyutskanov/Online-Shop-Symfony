@@ -79,7 +79,7 @@ class AdminController extends Controller
      * @param User $user
      * @return Response
      */
-    public function deleteProduct(User $user)
+    public function deleteUser(User $user)
     {
         // Is admin
         if (!$this->isGranted('ROLE_ADMIN', $this->getUser())) {

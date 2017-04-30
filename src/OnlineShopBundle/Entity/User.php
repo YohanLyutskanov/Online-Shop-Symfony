@@ -5,12 +5,14 @@ namespace OnlineShopBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * User
- *
+ * @UniqueEntity("username")
+ * @UniqueEntity("email")
  * @ORM\Table(name="users")
  * @ORM\Entity(repositoryClass="OnlineShopBundle\Repository\UserRepository")
  */
@@ -32,6 +34,7 @@ class User implements UserInterface
     private $id;
 
     /**
+     *
      * @var string
      * @Assert\NotBlank()
      * @ORM\Column(name="username", type="string", length=255, unique=true)
@@ -77,7 +80,7 @@ class User implements UserInterface
 
     /**
      * @var Cart
-     * @ORM\OneToMany(targetEntity="OnlineShopBundle\Entity\Cart", mappedBy="id")
+     * @ORM\OneToMany(targetEntity="OnlineShopBundle\Entity\Cart", mappedBy="userId", cascade={"persist", "remove"})
      */
     private $cart;
 

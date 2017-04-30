@@ -4,11 +4,13 @@ namespace OnlineShopBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Product
  *
+ * @UniqueEntity("name")
  * @ORM\Table(name="products")
  * @ORM\Entity(repositoryClass="OnlineShopBundle\Repository\ProductRepository")
  */
@@ -101,7 +103,6 @@ class Product
      * @ORM\Column(name="image", type="string", length=255, nullable=true)
      */
     private $image;
-
 
 
     /**

@@ -105,6 +105,14 @@ class ProductController extends Controller
      */
     public function add()
     {
+        // Is authenticated to add
+        if (!$this->isGranted('ROLE_ADMIN', $this->getUser()) &&
+            !$this->isGranted('ROLE_MODERATOR', $this->getUser())
+        ) {
+            $this->get('session')->getFlashBag()->add('error', 'You are not the owner of this product');
+
+            return $this->redirectToRoute('all_products');
+        }
         $form = $this->createForm(ProductType::class);
         return $this->render("products/add.html.twig",
             [
@@ -122,6 +130,15 @@ class ProductController extends Controller
      */
     public function addProcess(Request $request)
     {
+        // Is authenticated to add
+        if (!$this->isGranted('ROLE_ADMIN', $this->getUser()) &&
+            !$this->isGranted('ROLE_MODERATOR', $this->getUser())
+        ) {
+            $this->get('session')->getFlashBag()->add('error', 'You are not the owner of this product');
+
+            return $this->redirectToRoute('all_products');
+        }
+
         $product = new Product();
         $form = $this->createForm(
             ProductType::class,

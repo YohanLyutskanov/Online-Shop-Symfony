@@ -37,7 +37,7 @@ class PromotionController extends Controller
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function addCategoryProcess(Request $request)
+    public function addPromotionProcess(Request $request)
     {
         // Is authenticated to add promotion
         if (!$this->isGranted('ROLE_ADMIN', $this->getUser()) &&

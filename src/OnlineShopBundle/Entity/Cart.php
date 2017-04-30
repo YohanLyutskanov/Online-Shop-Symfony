@@ -55,6 +55,16 @@ class Cart
     }
 
     /**
+     * Get userId
+     *
+     * @return int
+     */
+    public function getUserId()
+    {
+        return $this->userId;
+    }
+
+    /**
      * Set userId
      *
      * @param integer $userId
@@ -69,13 +79,13 @@ class Cart
     }
 
     /**
-     * Get userId
+     * Get dateCreated
      *
-     * @return int
+     * @return \DateTime
      */
-    public function getUserId()
+    public function getDateCreated()
     {
-        return $this->userId;
+        return $this->dateCreated;
     }
 
     /**
@@ -93,13 +103,13 @@ class Cart
     }
 
     /**
-     * Get dateCreated
+     * Get dateUpdated
      *
      * @return \DateTime
      */
-    public function getDateCreated()
+    public function getDateUpdated()
     {
-        return $this->dateCreated;
+        return $this->dateUpdated;
     }
 
     /**
@@ -114,16 +124,6 @@ class Cart
         $this->dateUpdated = $dateUpdated;
 
         return $this;
-    }
-
-    /**
-     * Get dateUpdated
-     *
-     * @return \DateTime
-     */
-    public function getDateUpdated()
-    {
-        return $this->dateUpdated;
     }
 }
 

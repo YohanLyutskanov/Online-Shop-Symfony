@@ -4,7 +4,6 @@ namespace OnlineShopBundle\Controller;
 
 use OnlineShopBundle\Entity\Cart;
 use OnlineShopBundle\Entity\CartProduct;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -47,7 +46,6 @@ class CartController extends Controller
 
             if ($product) {
 
-
                 $cp = $this->getDoctrine()->getRepository('OnlineShopBundle:CartProduct')->findOneBy([
                     'cart' => $cart,
                     'product' => $product
@@ -75,9 +73,6 @@ class CartController extends Controller
 
         $this->addFlash("addCart", "The product was successfully added to your cart");
 
-
-//dump($this->getUser()->getId());
-//die;
         return $this->redirectToRoute('cart_list');
     }
 
@@ -131,7 +126,6 @@ class CartController extends Controller
 
     /**
      * @Route("/cart/checkout", name="cart_checkout")
-     * @param Cart $cart
      * @return Response
      */
     public function checkOutCart()
