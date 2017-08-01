@@ -157,7 +157,7 @@ class ProductController extends Controller
                 $filename = md5($product->getName() . '' . $product->getCreatedOn()->format("Y-m-d H:i:s"));
 
                 $file->move(
-                    $this->get('kernel')->getRootDir() . '/../web/images/products/',
+                    $this->get('kernel')->getRootDir() . '/../web/pics/products/',
                     $filename
                 );
 
@@ -239,7 +239,7 @@ class ProductController extends Controller
                 $filename = md5($product->getName() . '' . $product->getCreatedOn()->format('Y-m-d H:i:s'));
 
                 $file->move(
-                    $this->get('kernel')->getRootDir() . '/../web/images/products/',
+                    $this->get('kernel')->getRootDir() . '/../web/pics/products/',
                     $filename
                 );
 

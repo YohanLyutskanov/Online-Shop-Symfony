@@ -10,11 +10,11 @@
             {% endif %}
 
             <form action="{{ path('our_login') }}" method="post">
-                <label for="username">Username: </label>
+                <label for="username">Username: </label> <br>
                 <input type="text" id="username" name="_username" value="{{ last_username }}"/><br>
 
-                <label for="password">Password: </label>
-                <input type="password" id="password" name="_password"/><br>
+                <label for="password">Password: </label><br>
+                <input type="password" id="password" name="_password"/><br><br>
 
                 <button type="submit" class="btn btn-primary" formnovalidate>Log In</button>
 

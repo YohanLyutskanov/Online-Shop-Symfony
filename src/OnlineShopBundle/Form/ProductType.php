@@ -4,6 +4,7 @@ namespace OnlineShopBundle\Form;
 
 use OnlineShopBundle\Entity\Product;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
@@ -23,7 +24,7 @@ class ProductType extends AbstractType
                 ])
             ->add("description", TextareaType::class)
             ->add("quantity", IntegerType::class)
-            ->add("category", null,
+            ->add("category", ChoiceType::class,
                 [
                     "placeholder" => "Choose category"
                 ])

@@ -36,16 +36,13 @@
 
             {#{% if user.id == product.user.id  or is_granted('ROLE_ADMIN') or is_granted('ROLE_MODERATOR') %}#}
 
-            <li>
                 <form method="post" action="{{ path('edit_user_form', { 'id': user.id }) }}">
-                    <button type="submit">Edit</button>
+                    <button type="submit" class="btn btn-primary">Edit</button>
                 </form>
-            </li>
-            <li>
+            <br>
                 <form method="post" action="{{ path('delete_user_process', { 'id': user.id }) }}">
-                    <button type="submit">Delete</button>
+                    <button type="submit" class="btn btn-primary">Delete</button>
                 </form>
-            </li>
 
             {#{% endif %}#}
             {#<li>#}
